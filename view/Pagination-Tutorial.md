@@ -370,6 +370,72 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 @endsection
 ```
 
+## Customize the "Previous" and "Next" link titles
+
+### Method 1: Using Translation Files
+
+Edit your resources/lang/en/pagination.php file (or create it if it doesn't exist):
+
+```php
+// resources/lang/en/pagination.php
+return [
+    'previous' => '« Back',
+    'next' => 'Forward »',
+];
+```
+
+### Method 2: Creating Custom Pagination View
+
+1.  First, publish the pagination views:
+    `php artisan vendor:publish --tag=laravel-pagination`
+2.  Edit the simple pagination view in `resources/views/vendor/pagination/simple-bootstrap-4.blade.php` or similar:
+
+    ```php
+    <ul class="pagination">
+    {{-- Previous Page Link --}}
+    @if ($paginator->onFirstPage())
+    <li class="page-item disabled" aria-disabled="true">
+    <span class="page-link">← Previous Page</span>
+    </li>
+    @else
+    <li class="page-item">
+    <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">← Previous Page</a>
+    </li>
+    @endif
+
+        {{-- Next Page Link --}}
+        @if ($paginator->hasMorePages())
+            <li class="page-item">
+                <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">Next Page →</a>
+            </li>
+        @else
+            <li class="page-item disabled" aria-disabled="true">
+                <span class="page-link">Next Page →</span>
+            </li>
+        @endif
+
+    </ul>
+    ```
+
+3.  Use your custom view:
+    ```php
+    {{ $posts->links('vendor.pagination.simple-bootstrap-4') }}
+    ```
+
+### Method 3: Inline Custom Pagination Template
+
+```php
+{!! $posts->links('pagination::simple-bootstrap-4', [
+    'paginator' => $posts,
+    'elements' => [
+        'previous' => '← Go Back',
+        'next' => 'Continue →',
+    ]
+]) !!}
+```
+
+> Note that the third method may need a custom view that accepts the elements parameter, which isn't standard in Laravel's default views.
+
 ## Tips and Best Practices
 
 1. **Performance Considerations**:

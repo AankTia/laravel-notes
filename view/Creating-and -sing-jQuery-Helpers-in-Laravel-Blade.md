@@ -21,7 +21,7 @@ window.$ = window.jQuery = $;
 
 ### Option 2: Direct CDN Inclusion in Layout
 
-```blade
+```php
 {{-- resources/views/layouts/app.blade.php --}}
 <head>
     <!-- ... other head elements ... -->
@@ -346,7 +346,7 @@ window.DataHelpers = DataHelpers;
 
 ## Step 4: Include in Your Laravel Layout
 
-```blade
+```php
 {{-- resources/views/layouts/app.blade.php --}}
 <!DOCTYPE html>
 <html lang="en">
@@ -431,7 +431,7 @@ window.DataHelpers = DataHelpers;
 
 ### Example 1: Contact Form with jQuery Validation
 
-```blade
+```php
 {{-- resources/views/contact.blade.php --}}
 @extends('layouts.app')
 
@@ -535,7 +535,7 @@ window.DataHelpers = DataHelpers;
 
 ### Example 2: Product Listing with AJAX Loading
 
-```blade
+```php
 {{-- resources/views/products/index.blade.php --}}
 @extends('layouts.app')
 
@@ -723,7 +723,7 @@ window.DataHelpers = DataHelpers;
 
 ### Example 3: Modal Confirmation Dialog Helper
 
-```blade
+```php
 {{-- resources/views/admin/users/index.blade.php --}}
 @extends('layouts.app')
 

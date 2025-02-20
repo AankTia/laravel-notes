@@ -4,6 +4,9 @@
 
 `php artisan make:model ModelName --seed --migration`
 
+## Create Controller 
+`php artisan make:controller NameController`
+
 ## Run Migrate
 
 `php artisan migrate`

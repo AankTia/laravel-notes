@@ -14,3 +14,9 @@
 ## Drop all tables, runs all migrations, and seeds the database.
 
 `php artisan migrate:fresh --seed`
+
+## Clear the cache
+```bash
+php artisan cache:clear
+php artisan config:clear
+```

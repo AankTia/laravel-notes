@@ -17,7 +17,7 @@ php artisan migrate
 Create the necessary models:
 
 ```bash
-artisan make:model Permission -m
+php artisan make:model Permission -m
 php artisan make:model Role -m
 ```
 

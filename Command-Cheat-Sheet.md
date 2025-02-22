@@ -7,6 +7,9 @@
 ## Create Controller 
 `php artisan make:controller NameController`
 
+## Create Provider
+`php artisan make:provider NameProvider`
+
 ## Run Migrate
 
 `php artisan migrate`

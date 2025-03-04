@@ -106,6 +106,57 @@ This results in route names like:
 - `user.profiles.update`
 - `user.profiles.destroy`
 
+```php
+<?php
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
+
+// Basic resource routing
+Route::resource('posts', PostController::class);
+
+// This single line creates the following routes:
+// GET /posts (index)
+// GET /posts/create (create)
+// POST /posts (store)
+// GET /posts/{post} (show)
+// GET /posts/{post}/edit (edit)
+// PUT/PATCH /posts/{post} (update)
+// DELETE /posts/{post} (destroy)
+
+// Customizing resource routes
+Route::resource('posts', PostController::class)->only([
+    'index', 'show'  // Only generate index and show routes
+]);
+
+Route::resource('posts', PostController::class)->except([
+    'destroy'  // Generate all routes except destroy
+]);
+
+// Nested resource routes
+Route::resource('posts.comments', CommentController::class);
+// This creates routes like /posts/{post}/comments
+```
+
+Key points about `Route::resource()`:
+
+- Automatically generates standard RESTful routes
+- Maps directly to controller methods
+- Can be customized with only() and except() methods
+- Supports nested resource routing
+- Reduces boilerplate routing code
+
+Corresponding Controller Methods:
+
+- index(): Display a list of resources
+- create(): Show form to create a new resource
+- store(): Save a new resource
+- show(): Display a specific resource
+- edit(): Show form to edit a resource
+- update(): Update a specific resource
+- destroy(): Delete a specific resource
+
+Pro tip: Use php artisan route:list to see all generated routes for your resources.
+
 ---
 
 ### **Conclusion**

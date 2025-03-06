@@ -117,7 +117,8 @@ Route::resource('posts', PostController::class);
 ### **Step 4: Create Blade Views**  
 
 #### **Index View (`resources/views/posts/index.blade.php`)**  
-```blade
+```php
+// blade template
 @extends('layout')
 
 @section('content')
@@ -147,7 +148,8 @@ Route::resource('posts', PostController::class);
 ---
 
 #### **Create View (`resources/views/posts/create.blade.php`)**  
-```blade
+```php
+// blade template
 @extends('layout')
 
 @section('content')
@@ -168,7 +170,8 @@ Route::resource('posts', PostController::class);
 ---
 
 #### **Edit View (`resources/views/posts/edit.blade.php`)**  
-```blade
+```php
+// blade template
 @extends('layout')
 
 @section('content')
@@ -191,7 +194,8 @@ Route::resource('posts', PostController::class);
 ---
 
 #### **Show View (`resources/views/posts/show.blade.php`)**  
-```blade
+```php
+// blade template
 @extends('layout')
 
 @section('content')
@@ -204,7 +208,8 @@ Route::resource('posts', PostController::class);
 ---
 
 ### **Step 5: Layout File (`resources/views/layout.blade.php`)**  
-```blade
+```php
+// blade template
 <!DOCTYPE html>
 <html lang="en">
 <head>
